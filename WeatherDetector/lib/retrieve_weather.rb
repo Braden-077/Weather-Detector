@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'weather_detector'
+require_relative 'weather_location'
 
-pp WeatherDetector.new.ip
+pp WeatherLocation.new.ip, WeatherLocation.new.country, WeatherLocation.new.city
