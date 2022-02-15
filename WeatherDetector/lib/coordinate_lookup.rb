@@ -21,11 +21,11 @@ class CoordinateLookup
   end
 
   def longitude
-    @longitude ||= fetch_results['longt']
+    @longitude ||= fetch_results['longt'].to_f
   end
 
   def latitude
-    @latitude ||= fetch_results['latt']
+    @latitude ||= fetch_results['latt'].to_f
   end
 
   def params 
