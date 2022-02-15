@@ -4,7 +4,7 @@ require 'uri'
 require 'net/http'
 
 class CoordinateLookup
-  def initialize(location)
+  def initialize(location=nil)
     @location = location
   end
 

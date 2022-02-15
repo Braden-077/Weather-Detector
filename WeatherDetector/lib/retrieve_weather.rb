@@ -3,6 +3,8 @@
 require_relative 'weather_location'
 require_relative 'coordinate_lookup'
 
-pp WeatherLocation.new.ip, WeatherLocation.new.country, WeatherLocation.new.city
-# pp CoordinateLookup.new('Knoxville').fetch_results['longt'], CoordinateLookup.new('Knoxville').fetch_results['latt']
-pp CoordinateLookup.new('Knoxville').longitude, CoordinateLookup.new('Knoxville').latitude
+locator = WeatherLocation.new
+pp locator.ip, locator.city, locator.country
+
+coordinates = CoordinateLookup.new('Knoxville')
+pp coordinates.longitude, coordinates.latitude
