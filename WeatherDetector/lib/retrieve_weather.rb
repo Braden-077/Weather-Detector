@@ -5,10 +5,15 @@ require_relative 'coordinate_lookup'
 require_relative 'weather_checker'
 
 locator = WeatherLocation.new
-pp locator.ip, locator.city, locator.country
+puts "#{locator.ip}" 
+puts "You are currently in the city of #{locator.city}."
+puts "Your current country is #{locator.country}."
 
 weather = WeatherChecker.new
-pp weather.fetch_results
-pp weather.high_temps
-pp weather.low_temps
-pp weather.day
+puts
+puts "                    Weather forecast for #{locator.city}"
+puts
+puts "Day:   #{weather.formatted_weekdays}"
+puts "Date: #{weather.formatted_date}"
+puts "Highs: #{weather.formatted_highs}"
+puts "Lows:  #{weather.formatted_lows}"

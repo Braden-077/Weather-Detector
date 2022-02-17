@@ -29,8 +29,28 @@ class WeatherChecker
     @low_temps ||= fetch_results['daily']['temperature_2m_min']
   end
 
-  def day
-    @day ||= fetch_results['daily']['time'].map{|day_of_week| DateTime.parse(day_of_week).to_date.strftime("%A")}
+  def formatted_highs
+    high_temps.map {|high| high.to_s.center(7)}.join('   ')
+  end
+
+  def formatted_lows
+    low_temps.map {|low| low.to_s.center(7)}.join('   ')
+  end
+
+  def formatted_weekdays
+    days_of_week.map {|day| day.to_s.center(9)}.join(' ')
+  end
+
+  def days
+    @days ||= fetch_results['daily']['time'].map{|date| DateTime.parse(date)}
+  end
+
+  def days_of_week
+    @days_of_week ||= fetch_results['daily']['time'].map{|day_of_week| DateTime.parse(day_of_week).to_date.strftime("%A")}
+  end
+
+  def formatted_date
+    days.map {|date| date.strftime("%m/%d").to_s.center(10)}.join
   end
 
   def fetch_results
