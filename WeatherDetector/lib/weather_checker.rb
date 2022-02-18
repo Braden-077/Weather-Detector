@@ -29,11 +29,11 @@ class WeatherChecker
   end
 
   def formatted_highs
-    high_temps.map {|high| high.to_s.center(7)}.join('   ')
+    high_temps.map {|high| high.to_s.center(9)}.join(' ')
   end
 
   def formatted_lows
-    low_temps.map {|low| low.to_s.center(7)}.join('   ')
+    low_temps.map {|low| low.to_s.center(9)}.join(' ')
   end
 
   def formatted_weekdays
@@ -45,7 +45,7 @@ class WeatherChecker
   end
 
   def days_of_week
-    @days_of_week ||= fetch_results['daily']['time'].map{|day_of_week| DateTime.parse(day_of_week).to_date.strftime("%A")}
+    days.map {|day| day.strftime("%A")} 
   end
 
   def formatted_date

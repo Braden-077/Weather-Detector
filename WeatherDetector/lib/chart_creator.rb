@@ -14,10 +14,6 @@ class ChartCreator
     @weather_info ||= WeatherChecker.new
   end
 
-  def day_of_week
-    @day_of_week ||= WeatherChecker.new
-  end
-
   def chart_url
     @chart_url ||= begin
       uri = URI('https://image-charts.com/chart')
@@ -37,7 +33,7 @@ class ChartCreator
       'chtt' => 'Local+Temperature+in+degrees+(°F)',
       'chxt' => 'x,y',
       'chd' => "t:#{weather_info.high_temps.join(',')}|#{weather_info.low_temps.join(',')}",
-      'chxl' => "0:|#{day_of_week.days_of_week.join('|')}",
+      'chxl' => "0:|#{weather_info.days_of_week.join('|')}",
       'chxr' => "1,#{weather_info.low_temps.min-10},#{weather_info.high_temps.max+10}"
     })
   end

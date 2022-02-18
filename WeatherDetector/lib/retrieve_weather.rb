@@ -12,7 +12,7 @@ puts "Your current country is #{locator.country}."
 
 weather = WeatherChecker.new
 puts
-puts "                    Weather forecast for #{locator.city}"
+puts "Weather forecast for #{locator.city}".rjust(53) 
 puts
 puts "Day:   #{weather.formatted_weekdays}"
 puts "Date: #{weather.formatted_date}"
@@ -20,8 +20,9 @@ puts "Highs: #{weather.formatted_highs}"
 puts "Lows:  #{weather.formatted_lows}"
 puts
 
-chart = ChartCreator.new
+chart = ChartCreator.new(weather)
 puts "To see your weather as chart, copy the link below into your browser!"
+puts
 puts "#{chart.chart_url}"
 puts
 puts chart.render_image
