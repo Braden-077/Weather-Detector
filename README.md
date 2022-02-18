@@ -14,11 +14,12 @@ To get started, run:
     $ bundle install
 
 # Basic Use
-To get your IP Adress, city, country, as well as the temperature for the next seven days run:
+To get your IP Adress, city, country, as well as the temperature for the next seven days, run:
     
     $ ruby lib/retrieve_weather.rb 
     
     
+ Then take a look at [Getting your results as a chart](https://github.com/Braden-077/Weather-Detector/edit/master/README.md#getting-your-results-as-a-chart)
  
 # Getting your results as a chart
  If you want to get the image of the graph as well as the url, you need to make sure you're using an image supported terminal, [`iTerm2`](https://iterm2.com) is an example of such. Otherwise, just copying the link into your browser will do!
