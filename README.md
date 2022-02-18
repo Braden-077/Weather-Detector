@@ -9,21 +9,19 @@ To get started, run:
    
     $ git clone git@github.com:Braden-077/Weather-Detector.git
     
-Then change directories into your clone and run: 
+    $ cd Weather-Detector
 
     $ bundle install
 
 # Basic Use
-You'll need to clone the repository and change into your directory for the app. 
-Once you've cloned the repository, run:
+To get your IP Adress, city, country, as well as the temperature for the next seven days run:
     
     $ ruby lib/retrieve_weather.rb 
     
- This will simply get your IP Address, city, country, and the high and low temperatures for the next 7 days. It will also give you a url link with a graph displaying your weather in degrees(°) Fahrenheit. 
- 
+    
  
 # Getting your results as a chart
- If you want to get the image of the graph as well as the url, you need to make sure you're using an image supported terminal, ```iTerm2``` is an example of such. Otherwise, just copying the link into your browser will do!
+ If you want to get the image of the graph as well as the url, you need to make sure you're using an image supported terminal, [`iTerm2`](https://iterm2.com) is an example of such. Otherwise, just copying the link into your browser will do!
  
 
 # Running Tests
