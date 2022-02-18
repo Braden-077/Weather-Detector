@@ -30,7 +30,6 @@ class CoordinateLookup
 
   def params 
     URI.encode_www_form({
-      # 'auth' => 'your auth code',
       'locate' => location,
       'geoit' => 'json'
     })

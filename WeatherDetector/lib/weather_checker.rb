@@ -11,7 +11,6 @@ class WeatherChecker
 
   def params 
     URI.encode_www_form({
-      # 'auth' => 'your auth code',
       'latitude' => coordinates.latitude,
       'longitude' => coordinates.longitude,
       'temperature_unit' => 'fahrenheit',
