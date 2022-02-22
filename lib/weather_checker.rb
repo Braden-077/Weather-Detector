@@ -15,7 +15,8 @@ class WeatherChecker
       'longitude' => coordinates.longitude,
       'temperature_unit' => 'fahrenheit',
       'current_weather' => true,
-      'daily' => ['temperature_2m_min', 'temperature_2m_max'],
+      'daily' => ['temperature_2m_min', 'temperature_2m_max', 'weathercode'],
+      'hourly' => 'weathercode',
       'timezone' => 'America/New_York'
     })
   end
@@ -50,6 +51,14 @@ class WeatherChecker
 
   def formatted_date
     days.map {|date| date.strftime("%m/%d").to_s.center(10)}.join
+  end
+
+  def weather_currently
+    @weather_currently ||= fetch_results['current_weather']['weathercode']
+  end
+
+  def daily_weather
+    @daily_weather ||= fetch_results['daily']['weathercode'].map{|condition| condition.to_s.center(9)}.join(' ')
   end
 
   def fetch_results
