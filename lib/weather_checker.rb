@@ -58,7 +58,45 @@ class WeatherChecker
   end
 
   def daily_weather
-    @daily_weather ||= fetch_results['daily']['weathercode'].map{|condition| condition.to_s.center(9)}.join(' ')
+    @daily_weather ||= fetch_results['daily']['weathercode']
+  end
+
+  def daily_weather_condition
+    daily_weather.map{|condition| weather_code.key(condition).to_s}.join(', ')
+  end
+
+  def current_weather_condition
+    weather_code.key(weather_currently)
+  end
+
+  def weather_code
+    weather_code = {
+      'clear skies' => 0,
+      'mainly clear skies' => 1,
+      'partly cloudy skies' => 2,
+      'overcast' => 3,
+      'fog' => 45,
+      'depositing rime fog' => 48,
+      'light drizzle' => 51,
+      'moderate drizzle' => 53,
+      'heavy drizzle' => 55,
+      'light freezing drizzle' => 56,
+      'heavy freezing drizzle' => 57,
+      'light rain' => 61,
+      'moderate rain' => 63,
+      'heavy rain' => 65,
+      'light freezing rain' => 66,
+      'heavy freezing rain' => 67,
+      'light snowfall' => 71,
+      'moderate snowfall' => 73,
+      'heavy snowfall' => 75,
+      'snow flurries' => 77,
+      'light rain showers' => 80,
+      'moderate rain showers' => 81,
+      'heavy rain showers' => 82,
+      'light snow showers' => 85,
+      'heavy snow showers' => 86
+    }
   end
 
   def fetch_results
